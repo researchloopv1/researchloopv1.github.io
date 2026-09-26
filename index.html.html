@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ouroboros — AI that improves AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: dark;
+    --bg: #0A0908;
+    --text: #EAE6DD;
+    --text-muted: #A79C8A;
+    --accent: #C97A3D;
+    --rule: #2A2620;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html{ scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *{ box-sizing: inherit; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family:'Space Grotesk', system-ui, sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,.serif{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  a{ color:var(--accent); }
+  a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+  }
+  section{ padding-top:3.5rem; padding-bottom:3.5rem; }
+  .rule-top{ border-top:1px solid var(--rule); }
+
+  nav.wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:2rem;
+    padding-bottom:1rem;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-style:italic;
+    color:var(--text);
+    text-decoration:none;
+  }
+  nav a.cta-link{
+    font-size:0.95rem;
+    color:var(--text-muted);
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:2px;
+  }
+  nav a.cta-link:hover{ color:var(--accent); border-color:var(--accent); }
+
+  .hero{
+    position:relative;
+    padding-top:4rem;
+    padding-bottom:5rem;
+    overflow:hidden;
+  }
+  .hero-spiral{
+    position:absolute;
+    top:-1.5rem;
+    right:-1.5rem;
+    width:min(48vw, 460px);
+    opacity:0.9;
+    pointer-events:none;
+  }
+  .hero h1{
+    position:relative;
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    max-width:12ch;
+    margin:0 0 1.5rem;
+    line-height:1.08;
+  }
+  .hero p{
+    position:relative;
+    max-width:42ch;
+    color:var(--text-muted);
+    font-size:1.05rem;
+    line-height:1.6;
+  }
+
+  .manifesto .col{ max-width:42rem; margin-left:auto; }
+  .manifesto p{ font-size:1.05rem; line-height:1.75; }
+  .manifesto p + p{ margin-top:1.25rem; }
+
+  .product h2{ font-size:1.6rem; margin:0 0 2rem; }
+  .roadmap dl{
+    display:grid;
+    grid-template-columns:8rem 1fr;
+    row-gap:1.75rem;
+    column-gap:2rem;
+    margin:0;
+    max-width:60rem;
+  }
+  .roadmap dt{ font-weight:600; color:var(--accent); }
+  .roadmap dd{ margin:0; max-width:52ch; line-height:1.6; }
+  @media (max-width:640px){
+    .roadmap dl{ grid-template-columns:1fr; row-gap:0.35rem; }
+    .roadmap dd{ margin-bottom:1.25rem; }
+  }
+
+  .contact .col{ max-width:40rem; }
+  .contact h2{ font-size:1.4rem; margin:0 0 1rem; }
+  .contact p{ color:var(--text-muted); }
+  .contact a.mail{
+    display:inline-block;
+    margin-top:1rem;
+    font-size:1.05rem;
+    color:var(--text);
+    border-bottom:1px solid var(--accent);
+    text-decoration:none;
+    padding-bottom:2px;
+  }
+  .contact a.mail:hover{ color:var(--accent); }
+
+  footer{
+    padding-top:2.5rem;
+    padding-bottom:3rem;
+    color:var(--text-muted);
+    font-size:0.85rem;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.5rem;
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero h1{ animation:rise 0.7s ease-out both; }
+    .hero p{ animation:rise 0.7s ease-out both; animation-delay:0.1s; }
+    .hero-spiral{ animation:fadein 1.1s ease-out both; animation-delay:0.05s; }
+  }
+  @keyframes rise{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes fadein{ from{opacity:0;} to{opacity:0.9;} }
+
+  @media (max-width:600px){
+    .hero-spiral{ width:65vw; top:-2rem; right:-2rem; opacity:0.5; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <span class="wordmark">Ouroboros</span>
+  <a class="cta-link" href="#contact">Get in touch</a>
+</nav>
+
+<header class="hero wrap">
+  <svg class="hero-spiral" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#C97A3D" stroke-width="1.2">
+      <circle cx="200" cy="200" r="20" opacity="0.9"/>
+      <circle cx="200" cy="200" r="45" opacity="0.7" stroke-dasharray="2 6"/>
+      <circle cx="200" cy="200" r="80" opacity="0.5"/>
+      <circle cx="200" cy="200" r="125" opacity="0.3" stroke-dasharray="2 6"/>
+      <circle cx="200" cy="200" r="180" opacity="0.15"/>
+    </g>
+  </svg>
+  <h1>Every model we build teaches the next one how to be better.</h1>
+  <p>Ouroboros is building an AI system that runs its own machine-learning research — proposing changes, testing them, and keeping what works — so the loop of improvement doesn't have to wait for a person to notice what to try next.</p>
+</header>
+
+<section class="manifesto rule-top wrap">
+  <div class="col">
+    <p>Most machine-learning research still runs on a person's intuition: try a change, wait for the run to finish, read the numbers, decide what to try next. That loop is the bottleneck. It caps how fast a team can improve its own models at the rate a handful of researchers can think of ideas and interpret results.</p>
+    <p>We think the loop itself can be automated — not the judgment, but the tedious middle part of it. A system that reads its own results, proposes the next experiment, and runs it without waiting on a person doesn't just save time. It can try far more ideas than a team ever would, and it gets sharper at choosing good ones the longer it runs.</p>
+  </div>
+</section>
+
+<section class="product roadmap rule-top wrap">
+  <h2 class="serif">What we're building</h2>
+  <dl>
+    <dt>Now</dt>
+    <dd>An automated research assistant that optimizes model architecture and training hyperparameters for applied ML teams — turning a week of manual tuning into an overnight run.</dd>
+    <dt>Next</dt>
+    <dd>Extending the same loop to data selection and evaluation design, so more of the research cycle runs without a person in it.</dd>
+    <dt>Always</dt>
+    <dd>A person decides what's worth building. The system just runs the loop faster once it's pointed at a problem.</dd>
+  </dl>
+</section>
+
+<section id="contact" class="contact rule-top wrap">
+  <div class="col">
+    <h2 class="serif">Building this with a small founding team</h2>
+    <p>If you run ML infrastructure or research at scale and want early access — or this is the kind of problem you think about for a living — we'd like to hear from you.</p>
+    <a class="mail" href="mailto:hello@example.com">hello@example.com</a>
+  </div>
+</section>
+
+<footer class="wrap rule-top">
+  <span>© 2026 Ouroboros</span>
+  <span>AI that improves AI.</span>
+</footer>
+
+</body>
+</html>
